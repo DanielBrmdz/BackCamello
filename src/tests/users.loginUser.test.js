@@ -57,7 +57,7 @@ describe('loginUser', () => {
 
     it('Debería devolver un mensaje de error si el correo electrónico es incorrecto', async () => {
         const mockResult = [];
-        const expectedMessage = 'Email incorrecto';
+        const expectedMessage = 'usuario no valido';
 
         // Simulación de los resultados de la consulta de la base de datos
         connection.query.mockImplementation((query, callback) => {

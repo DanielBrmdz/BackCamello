@@ -28,7 +28,7 @@ describe('getUsersList', () => {
         await getUsersList(req, res);
 
         expect(jwt.verify).toHaveBeenCalledWith(req.token, 'secretkey', expect.any(Function));
-        expect(connection.query).toHaveBeenCalledWith('Select * from usuarios', expect.any(Function));
+        expect(connection.query).toHaveBeenCalledWith('Select * from usuarios where estado = \'A\'', expect.any(Function));
         expect(res.json).toHaveBeenCalledWith(userList);
     });
 
@@ -41,7 +41,7 @@ describe('getUsersList', () => {
         await getUsersList(req, res);
     
         expect(jwt.verify).toHaveBeenCalledWith(req.token, 'secretkey', expect.any(Function));
-        expect(connection.query).toHaveBeenCalledWith('Select * from usuarios', expect.any(Function));
+        expect(connection.query).toHaveBeenCalledWith('Select * from usuarios where estado = \'A\'', expect.any(Function));
         expect(res.json).toHaveBeenCalledWith({ message: 'No hay usuarios' });
     });
 
